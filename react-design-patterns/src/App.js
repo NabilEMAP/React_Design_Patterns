@@ -1,3 +1,4 @@
+import { NumberedList } from "./NumberedList";
 import { RegularList } from "./RegularList";
 import { LargePersonListItem } from "./people/LargePersonListItem";
 import { SmallPersonListItem } from "./people/SmallPersonListItem";
@@ -46,7 +47,7 @@ function App() {
       resourceName="person"
       itemComponent={SmallPersonListItem}
     />
-    <RegularList
+    <NumberedList
       items={people}
       resourceName="person"
       itemComponent={LargePersonListItem}
@@ -56,7 +57,7 @@ function App() {
       resourceName="product"
       itemComponent={SmallProductListItem}
     />
-    <RegularList
+    <NumberedList
       items={products}
       resourceName="product"
       itemComponent={LargeProductListItem}

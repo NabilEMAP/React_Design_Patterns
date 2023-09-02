@@ -4,9 +4,10 @@ export const LargeProductListItem = ({ product }) => {
     return (
         <>
             <h3>{name}</h3>
-            <p>Price: {price}</p>
+            <p>{price}</p>
+            <h3>Description:</h3>
             <p>{description}</p>
-            <p>Rating: {rating}</p>
+            <p>Average Rating: {rating}</p>
         </>
     );
 }
