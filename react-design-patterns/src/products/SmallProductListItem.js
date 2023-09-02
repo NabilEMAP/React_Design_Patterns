@@ -1,4 +1,4 @@
-export const LargeProductListItem = ({ product }) => {
+export const SmallProductListItem = ({ product }) => {
     const { name, price } = product;
 
     return (
