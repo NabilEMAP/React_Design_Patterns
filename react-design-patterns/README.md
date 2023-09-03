@@ -18,3 +18,4 @@
 - What are container components?
 - Server instructions
 - CurrentUserLoader component
+- UserLoader component
