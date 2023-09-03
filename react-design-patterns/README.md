@@ -17,3 +17,4 @@
 ## 2. Container Components
 - What are container components?
 - Server instructions
+- CurrentUserLoader component
