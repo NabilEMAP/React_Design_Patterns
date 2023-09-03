@@ -1,5 +1,5 @@
-import { CurrentUserLoader } from "./CurrentUserLoader";
-import { UserInfo } from "./UserInfo";
+import { CurrentUserLoader } from './CurrentUserLoader';
+import { UserInfo } from './UserInfo';
 
 function App() {
 	return (
