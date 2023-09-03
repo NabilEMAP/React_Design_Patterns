@@ -13,3 +13,7 @@
 - Lists and items
 - Creating different list types
 - Modal components
+
+## 2. Container Components
+- What are container components?
+- Server instructions
