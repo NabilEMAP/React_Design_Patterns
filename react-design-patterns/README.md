@@ -19,3 +19,4 @@
 - Server instructions
 - CurrentUserLoader component
 - UserLoader component
+- ResourceLoader component
