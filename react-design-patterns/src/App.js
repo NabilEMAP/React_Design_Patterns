@@ -10,7 +10,7 @@ const getServerData = url => async () => {
 function App() {
 	return (
 		<>
-			<DataSource getDataFunc={getServerData('users/123')} resourceName="user">
+			<DataSource getDataFunc={getServerData('/users/123')} resourceName="user">
 				<UserInfo />
 			</DataSource>
 		</>
