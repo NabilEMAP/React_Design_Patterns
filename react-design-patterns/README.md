@@ -26,41 +26,60 @@
 ## 3. Controlled and Uncontrolled Components
 - Controlled vs. uncontrolled components
 - Uncontrolled forms
+- Controlled forms
 
-UncontrolledForm.js
+ControlledForm.js
 ```javascript
-import React from 'react';
+import { useState, useEffect } from 'react';
 
-export const UncontrolledForm = () => {
-	const nameInput = React.createRef();
-	const ageInput = React.createRef();
-	const hairColorInput = React.createRef();
+export const ControlledForm = () => {
+	const [nameInputError, setNameInputError] = useState('');
+	const [name, setName] = useState('');
+	const [age, setAge] = useState();
+	const [hairColor, setHairColor] = useState('');
 
-	const handleSubmit = e => {
-		console.log(nameInput.current.value);
-		console.log(ageInput.current.value);
-		console.log(hairColorInput.current.value);
-		e.preventDefault();
-	}
+	useEffect(() => {
+		if (name.length < 2) {
+			setNameInputError('Name must be two or more characters');
+		} else {
+			setNameInputError('');
+		}
+	}, [name])
 
 	return (
-		<form onSubmit={handleSubmit}>
-			<input name="name" type="text" placeholder="Name" ref={nameInput} />
-			<input name="age" type="number" placeholder="Age" ref={ageInput} />
-			<input name="hairColor" type="text" placeholder="Hair Color" ref={hairColorInput} />
-			<input type="submit" value="Submit" />
+		<form>
+			{nameInputError && <p>{nameInputError}</p>}
+			<input
+				name="name"
+				type="text"
+				placeholder="Name"
+				value={name}
+				onChange={e => setName(e.target.value)} />
+			<input
+				name="age"
+				type="number"
+				placeholder="Age"
+				value={age}
+				onChange={e => setAge(Number(e.target.value))} />
+			<input
+				name="hairColor"
+				type="text"
+				placeholder="Hair Color"
+				value={hairColor}
+				onChange={e => setHairColor(e.target.value)} />
+			<button>Submit</button>
 		</form>
-	);
+	)
 }
 ```
 
 App.js
 ```javascript
-import { UncontrolledForm } from "./UncontrolledForm";
+import { ControlledForm } from "./ControlledForm";
 
 function App() {
 	return (
-		<UncontrolledForm />
+		<ControlledForm />
 	);
 }
 
