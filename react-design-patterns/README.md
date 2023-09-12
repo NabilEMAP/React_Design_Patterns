@@ -32,77 +32,23 @@
 - Collecting onboarding data
 - Controlled onboarding flows
 
-ControlledOnboardingFlow.js
-```javascript
-import React, { useState } from 'react';
+What are the benefits of using a controlled onboarding flow?
+- It ensures the steps are in proper order, tracks data, and is an easy way to reset the onboarding process. So some benefits of using a controlled onboarding flow include: 1) Ensuring that all steps in the onboarding process are completed in the correct order 2) Allowing you to track the data collected from the user at each step and 3) Providing an easy way to reset the onboarding process if necessary.
 
-export const ControlledOnboardingFlow = ({ children, onFinish, currentIndex, onNext }) => {
-    const goToNext = stepData => {
-        onNext(stepData);
-    }
+What is the main difference between a controlled and uncontrolled onboarding flow?
+- A controlled onboarding flow provides more control. A controlled onboarding flow allows the app component to have more control over what is displayed, while an uncontrolled onboarding flow does not.
 
-    const currentChild = React.Children.toArray(children)[currentIndex];
+What are the differences between a controlled and uncontrolled form in React?
+- A controlled form keeps track of values for inputs using a useState hook while an uncontrolled form does not. Additionally, each input in a controlled form has an onChange handler that updates the corresponding state variable when the user changes the value in the input.
 
-    if (React.isValidElement(currentChild)) {
-        return React.cloneElement(currentChild, { goToNext });
-    }
+What is the central problem with an uncontrolled modal?
+- None of the other components can control it.
 
-    return currentChild;
-}
-```
+How does the controlled onboarding flow affect users?
+- The controlled onboarding flow gives users much more flexibility over what their onboarding flow looks like and how it changes as they go on.
 
-App.js
-```javascript
-import { useState } from "react";
-import { ControlledOnboardingFlow } from "./ControlledOnboardingFlow";
+What is the main difference between controlled and uncontrolled components?
+- Uncontrolled components are those where the component itself keeps track of its own internal state, while controlled components are those where the state is passed through as props from a parent component. Controlled components tend to be more reusable and easier to test.
 
-const StepOne = ({ goToNext }) => (
-	<>
-		<h1>Step 1</h1>
-		<button onClick={() => goToNext({ name: 'John Doe' })}>Next</button>
-	</>
-);
-const StepTwo = ({ goToNext }) => (
-	<>
-		<h1>Step 2</h1>
-		<button onClick={() => goToNext({ age: /*100*/ 50 })}>Next</button>
-	</>
-);
-const StepThree = ({ goToNext }) => (
-	<>
-		<h1>Step 3</h1>
-		<p>Congratulations! You qualify for our senior discount!</p>
-		<button onClick={() => goToNext({})}>Next</button>
-	</>
-);
-const StepFour = ({ goToNext }) => (
-	<>
-		<h1>Step 4</h1>
-		<button onClick={() => goToNext({ hairColor: 'Black' })}>Next</button>
-	</>
-);
-
-function App() {
-	const [onboardingData, setOnboardingData] = useState({});
-	const [currentIndex, setCurrentIndex] = useState(0);
-	
-	const onNext = stepData => {
-		setOnboardingData({ ...onboardingData, ...stepData });
-		setCurrentIndex(currentIndex + 1);
-	}
-	
-	return (
-		<ControlledOnboardingFlow 
-			currentIndex={currentIndex} 
-			onNext={onNext}
-		>
-			<StepOne />
-			<StepTwo />
-			{onboardingData.age >= 62 && <StepThree />}
-			<StepFour />
-		</ControlledOnboardingFlow>
-	);
-}
-
-export default App;
-```
+What are the three input types in the uncontrolled form?
+- text, number, and submit. You use these for different purposes such as name, age, and hair color. The submit button sends the form data to the server.
