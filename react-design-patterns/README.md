@@ -36,3 +36,4 @@
 - What are higher-order components?
 - Printing props with HOC's
 - Loading data with HOC's
+- Modifying data with HOC's
