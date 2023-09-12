@@ -35,3 +35,4 @@
 ## 3. Controlled and Uncontrolled Components
 - What are higher-order components?
 - Printing props with HOC's
+- Loading data with HOC's
