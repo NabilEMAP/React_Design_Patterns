@@ -38,3 +38,4 @@
 - Loading data with HOC's
 - Modifying data with HOC's
 - Creating forms with HOC's
+- High-order component improvements
