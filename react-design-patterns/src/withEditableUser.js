@@ -15,7 +15,7 @@ export const withEditableUser = (Component, userId) => {
         }, []);
 
         const onChangeUser = changes => {
-            setUser(...user, ...changes);
+            setUser({...user, ...changes});
         }
 
         const onSaveUser = async () => {
