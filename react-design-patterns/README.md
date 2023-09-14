@@ -44,3 +44,4 @@
 - What are custom Hooks?
 - useCurrentUser Hook
 - useUser Hook
+- useResource Hook
