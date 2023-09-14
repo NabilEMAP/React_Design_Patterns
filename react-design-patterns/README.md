@@ -42,20 +42,4 @@
 
 ## 5. Custom Hooks Patterns
 - What are custom Hooks?
-
-Special hooks that we define ourselves and that usually combine the functionality of one or more existing hooks like "useState" or "useEffect".
-```javascript
-const useProducts = () => {
-    const [products, setProducts] = useState([]);
-
-    //... load the products
-
-    return products;
-}
-```
-Our components want to have access to products from the server. We could either create the product state and load the products inside the component itself or create our own custom useProducts hook that encapsulates this functionality.
-
-```javascript
-const products = useProducts();
-```
-Custom hooks do have to start with the word "use". They are used for sharing complex behavior between multiple components (much like with HOC's and container components).
+- useCurrentUser Hook
