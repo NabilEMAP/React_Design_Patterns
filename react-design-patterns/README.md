@@ -43,3 +43,4 @@
 ## 5. Custom Hooks Patterns
 - What are custom Hooks?
 - useCurrentUser Hook
+- useUser Hook
