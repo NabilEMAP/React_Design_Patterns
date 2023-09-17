@@ -50,3 +50,51 @@
 ## 6. Functional Programming and React
 - What is functional programming?
 - Recursive components
+
+App.js
+```javascript
+import { DangerButton, BigSuccessButton, Button } from "./composition";
+
+function App() {
+	return (
+		<>
+			<DangerButton text="Danger Button"/>
+			<BigSuccessButton text="Big Success Button"/>
+			<Button text="Regular Button" size="medium" color="#ffff00"/>
+		</>
+	);
+}
+
+export default App;
+```
+
+composition.js
+```javascript
+export const Button = ({ size, color, text, ...props }) => {
+    return (
+        <button style={{
+            padding: size === 'large' ? '32px' : '8px',
+            fontSize: size === 'large' ? '32px' : '16px',
+            backgroundColor: color,
+        }}{...props}>
+            {text}
+        </button>
+    )
+}
+
+export const DangerButton = props => {
+    return (
+        <Button {...props} color="red" />
+    );
+}
+
+export const BigSuccessButton = props => {
+    return (
+        <Button {...props} size="large" color="green"/>
+    );
+}
+```
+
+And the nice part about this is that we don't have to copy and paste this same code from our button component into our danger button and big success button. In other words, both our danger and big success buttons are just building off the code that's contained inside of the original button component.
+
+
