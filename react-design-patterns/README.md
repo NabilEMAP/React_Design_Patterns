@@ -52,45 +52,14 @@
 - Recursive components
 - Partially applied components
 
-App.js
-```javascript
-import { DangerButton, BigSuccessButton, Button } from "./partiallyApply";
+What is partial application?
+- A partial application is a way to allow the user to specify a set number of props on a component without having to create a new component.
 
-function App() {
-	return (
-		<>
-			<DangerButton text="Danger Button"/>
-			<BigSuccessButton text="Big Success Button"/>
-		</>
-	);
-}
+What is the central purpose of a recursive component?
+- The purpose of a recursive component is to display nested data structures.
 
-export default App;
-```
+What does composition allow you to do in React?
+- Composition allows you to create different versions of a component by creating new components that use the original component. For example, you can create a danger button that automatically has the color set to red, or a big success button with the padding set to large and the color set to green. This allows you to avoid code duplication and makes a code more maintainable.
 
-partiallyApply.js
-```javascript
-export const partiallyApply = (Component, partialProps) => {
-    return props => {
-        return <Component {...partialProps} {...props} />
-    };
-}
-
-export const Button = ({ size, color, text, ...props }) => {
-    return (
-        <button style={{
-            padding: size === 'large' ? '32px' : '8px',
-            fontSize: size === 'large' ? '32px' : '16px',
-            backgroundColor: color,
-        }}{...props}>
-            {text}
-        </button>
-    )
-}
-
-export const DangerButton = partiallyApply(Button, { color: 'red' });
-export const BigSuccessButton = partiallyApply(Button, { color: 'green', size: 'large' });
-```
-
-And we see that now we have the exact same thing, except we're using higher order components to achieve this instead of explicitly creating new components like we did in our composition.js.
-
+What is functional programming?
+- Functional programming is a way of organizing your code base to minimize mutation and state change in your applications. The functions remain independent of external data, known as pure functions, and you also treat functions as first-class citizens
