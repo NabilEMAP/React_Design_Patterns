@@ -1,11 +1,10 @@
-import { DangerButton, BigSuccessButton, Button } from "./composition";
+import { DangerButton, BigSuccessButton, Button } from "./partiallyApply";
 
 function App() {
 	return (
 		<>
 			<DangerButton text="Danger Button"/>
 			<BigSuccessButton text="Big Success Button"/>
-			<Button text="Regular Button" size="medium" color="#ffff00"/>
 		</>
 	);
 }

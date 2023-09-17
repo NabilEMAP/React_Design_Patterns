@@ -50,17 +50,17 @@
 ## 6. Functional Programming and React
 - What is functional programming?
 - Recursive components
+- Partially applied components
 
 App.js
 ```javascript
-import { DangerButton, BigSuccessButton, Button } from "./composition";
+import { DangerButton, BigSuccessButton, Button } from "./partiallyApply";
 
 function App() {
 	return (
 		<>
 			<DangerButton text="Danger Button"/>
 			<BigSuccessButton text="Big Success Button"/>
-			<Button text="Regular Button" size="medium" color="#ffff00"/>
 		</>
 	);
 }
@@ -68,8 +68,14 @@ function App() {
 export default App;
 ```
 
-composition.js
+partiallyApply.js
 ```javascript
+export const partiallyApply = (Component, partialProps) => {
+    return props => {
+        return <Component {...partialProps} {...props} />
+    };
+}
+
 export const Button = ({ size, color, text, ...props }) => {
     return (
         <button style={{
@@ -82,19 +88,9 @@ export const Button = ({ size, color, text, ...props }) => {
     )
 }
 
-export const DangerButton = props => {
-    return (
-        <Button {...props} color="red" />
-    );
-}
-
-export const BigSuccessButton = props => {
-    return (
-        <Button {...props} size="large" color="green"/>
-    );
-}
+export const DangerButton = partiallyApply(Button, { color: 'red' });
+export const BigSuccessButton = partiallyApply(Button, { color: 'green', size: 'large' });
 ```
 
-And the nice part about this is that we don't have to copy and paste this same code from our button component into our danger button and big success button. In other words, both our danger and big success buttons are just building off the code that's contained inside of the original button component.
-
+And we see that now we have the exact same thing, except we're using higher order components to achieve this instead of explicitly creating new components like we did in our composition.js.
 
