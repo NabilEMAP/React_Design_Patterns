@@ -49,8 +49,4 @@
 
 ## 6. Functional Programming and React
 - What is functional programming?
-
-Functional programming is a method of organizing code in a way that:
-1. Minimizes mutation and state change
-2. Keeps functions independent of external data
-3. Treat functions as first-class citizens
+- Recursive components
