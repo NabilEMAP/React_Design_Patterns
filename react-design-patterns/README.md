@@ -47,17 +47,10 @@
 - useResource Hook
 - useDataSource Hook
 
-What are custom hooks?
-- Custom hooks basically result when, instead of just using the basic hooks that React provides, such as useState and useEffect, you actually combine these hooks into your own new hooks.
+## 6. Functional Programming and React
+- What is functional programming?
 
-What does the useCurrentUser hook allow a component to do?
-- The useCurrentUser hook allows a component to load the current user from the server so that they have access to that information.
-
-What is the useUser hook?
-- The useUser hook is a custom hook that allows you to load any user from the server by their ID. This makes the UserInfo component more flexible, as you can now pass in any user ID and load that user's information. 
-
-What does the useDataSource custom hook do?
-- The useDataSourcecustom hook allows you to load data from a server or from local storage. You can specify the URL of the resource you want to load, and it will return an asynchronous function that will fetch the data for you.
-
-What does the useResource custom hook do?
-- The useResource custom hook allows you to quickly and easily load any server-side resource inside any component. This means you can easily load data from your database into our React components without writing a lot of code.
+Functional programming is a method of organizing code in a way that:
+1. Minimizes mutation and state change
+2. Keeps functions independent of external data
+3. Treat functions as first-class citizens
